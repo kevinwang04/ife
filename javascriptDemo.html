@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<input id="number1">
+	<input id="number2">
+	<span id="result"></span>
+	<button id="addbtn">相加</button>
+
+	<script type="text/javascript">
+/*
+	//任务1：控制台打印 hell0 world
+	console.log("hello world");
+*/
+/*
+	//任务2：实现简单相加。
+	function $(id){
+		return document.getElementById(id);
+	}
+	
+	function clickEvent(){
+		$('addbtn').addEventListener('click',addEventHandle,false);
+	}
+	function addEventHandle(){
+		var num1 = $("number1").value;
+		var num2 = $('number2').value;
+		var newNum = addNumber(num1,num2);
+		innerNumber(newNum);
+	}
+	function addNumber(num1,num2){
+		return num1 + num2;
+	}
+	function innerNumber(result){
+		$("result").innerHTML=result;
+	}
+	clickEvent();
+
+	//任务三：判断是否是函数
+	function isFn(arr){
+		
+		return arr.constructor.toString().indexOf("Function")>-1;
+
+	}
+	console.log(isFn(["Banana", "Orange", "Apple", "Mango"]));
+	*/
+
+	/*var arr = ['java', 'c', 'php', 'html'];
+	function output(item) {
+    console.log(item);
+	}
+	function each(arr , Fn){
+		arr.console("")
+	}
+	each(arr, output); 
+*/
+/*
+	//任务四：递归调用实现深度克隆
+	function cloneObject(src){
+		var o;
+		if (typeof src =="object") {
+			if (src === null) {
+				o = null;
+			}else{
+				if (src instanceof Array) {
+					o = [];
+					for (var i = 0; i < src.length; i++) {
+						o.push(cloneObject(src[i]));
+					}
+				}else{
+					o ={};
+					for(var j in src){
+						o[j] = cloneObject(src[j]);
+					}
+				}
+			}	
+		}else{
+			 o =src;
+		}
+		return o;
+	}	
+	var srcObj = {
+		a:1,
+		b:{
+			b1:["hello","hi"],
+			b2:"javascript"
+		}
+	};
+	var abObj = srcObj;
+	var tarObj = cloneObject(srcObj);
+	srcObj.a = 2;
+	srcObj.b.b1[0] = "Hello";
+	//输出：
+	console.log(abObj.a);//2
+	console.log(abObj.b.b1[0]);//Hello
+	console.log(tarObj.a);//1
+	console.log(tarObj.b.b1[0]);//hello
+*/
+/*
+	//任务五：对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组。
+
+	function uniqArray(arr){
+		var newArray=new Array();
+	    var len=arr.length;
+	    for (var i=0;i<len ;i++){
+	        for(var j=i+1;j<len;j++){
+	            if(this[i]===this[j]){
+	                j=++i;//如果后面数组中有和前面相同的元素，则把前面的元素跳过，继续循环。
+	            }
+	        }
+	        newArray.push(this[i]);
+	    }
+	    return newArray;
+	}
+	var a = ['a','b','a','c'];	
+	var b = uniqArray(a);
+	console.log(b);//一直输出是[]空数组，
+*/
+
+/*	//任务六：字符串去空格
+	function trim(str){
+		//正则表达式1：return str.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,"");
+		 return str.replace(/(^\s*)|(\s*$)/g, "");//正则表达式2
+	}
+	var str = '  hi!  ';
+	str = trim(str);
+	console.log(str);//'hi'
+*/
+/*	//任务七：使用each方法
+	function each(arr,fn){
+		for (var i = 0; i < arr.length; i++) {
+			fn(arr[i]);
+		};
+	}
+	var str = ['java','c','php','html'];
+	function output(item, index){
+		console.log(index+':'+item);//java,c ,php,html
+	}
+	each(str,output);*/
+
+/*	//任务八：获取对象里面第一层元素的数量
+	function getobjectLength(obj){
+		return Object.keys(obj).length;
+	}
+	var obj = {
+		a:1,
+		b:2,
+		c:{
+			c1:3,
+			c2:4
+		},
+		d:5
+	};
+	console.log(getobjectLength(obj));//4 */
+
+	//任务九：学习正则表达式
+	function isEmail(emailStr) {
+		var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+		return re.test(emailStr);
+	}
+	function isMobilephone(phone){
+		var re = /^1\d{10}$/
+		return re.test(phone);
+	}
+	console.log(isEmail('1059002908@qq.com'));//true
+	console.log(isMobilephone('18813122761'));//true
+	console.log(isMobilephone('123456'));
+</script>
+</body>
+</html>
