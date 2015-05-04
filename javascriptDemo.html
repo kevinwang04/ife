@@ -3,12 +3,25 @@
 <head>
 	<title>JavaScript demo</title>
 	<meta charset="utf-8">
+	<style type="text/css">
+		.old{
+			position: relative;
+			width: 50px;
+			height: 50px;
+			background-color: blue;	
+		}
+		.new{
+			border:3px solid #ccc;
+			border-radius: 5px;
+		}
+	</style>
 </head>
 <body>
 	<input id="number1">
 	<input id="number2">
 	<span id="result"></span>
 	<button id="addbtn">相加</button>
+	<p class="old" id="p"></p>
 
 	<script type="text/javascript">
 /*
@@ -116,7 +129,7 @@
 	}
 	var a = ['a','b','a','c'];	
 	var b = uniqArray(a);
-	console.log(b);//一直输出是[]空数组，
+	console.log(b);//一直输出是[]空数组，==
 */
 
 /*	//任务六：字符串去空格
@@ -155,7 +168,7 @@
 	};
 	console.log(getobjectLength(obj));//4 */
 
-	//任务九：学习正则表达式
+/*	//任务九：学习正则表达式
 	function isEmail(emailStr) {
 		var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
 		return re.test(emailStr);
@@ -166,7 +179,55 @@
 	}
 	console.log(isEmail('1059002908@qq.com'));//true
 	console.log(isMobilephone('18813122761'));//true
-	console.log(isMobilephone('123456'));
+	console.log(isMobilephone('123456'));//false*/
+
+/*	//任务十：增加和移除类
+	function addClass(element,newClassName){
+		if(!element.className){
+			return element.className = newClassName;
+		}else{
+			var newClass = element.className;
+			newClass += " ";
+			newClass = newClass += newClassName;
+			element.className = newClass;
+		}
+	}//增加类
+
+	function removeClass(element,oldClassName){
+		var elementClassName = element.className;  
+		if (!element.className) {
+			return ;
+		}else if(element.className.length = 0) return;
+		else if (element.className == oldClassName) {
+			element.className = " ";
+		}else if (elementClassName.match(new RegExp("(^|\\s)" + className + "(\\s|$)")))  
+        element.className = elementClassName.replace((new RegExp("(^|\\s)" + className + "(\\s|$)"))," ");
+	}//移除类
+
+	var p = document.getElementById("p");
+	//removeClass(p,"old");
+	//addClass(p,"new");*/
+
+	function isSiblingNode(element, siblingNode) {
+   		var elementParent = element.parentNode;
+   		var siblingNodeParent = siblingNode.parentNode;
+   		console.log(siblingNodeParent);
+   		return elementParent === siblingNodeParent;
+ 	}
+ 	var p = document.querySelector('#p');
+ 	var btn = document.querySelector('#addbtn');
+ 	console.log(isSiblingNode(p, btn));
+
+/* 	//获取当前位置：
+ 	function getPosition(element) {
+   		var actualLeft = element.offsetLeft;
+   		var actualTop = element.offsetTop;
+   		return actualLeft + " " +actualTop;
+	}
+	var p = document.querySelector('#p');
+	console.log(getPosition(p));//8 45*/
+
+
 </script>
 </body>
 </html>
